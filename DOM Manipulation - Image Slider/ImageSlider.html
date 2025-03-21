@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider</title>
+    <style>
+  
+        #image {
+            width: 100%;
+            height: 100%;
+        }
+        .buttons {
+            margin-top: 20px;
+            text-align: center;
+        }
+       
+    </style>
+</head>
+<body>
+
+   
+    <div id="slider">
+        <p id="caption"></p>
+        <img id = "image" src="" alt="image">
+    </div>
+
+    <div class="buttons">
+        <button onclick="prevImage()">Previous</button>
+    <button onclick="nextImage()">Next</button>
+    </div>
+    
+    <script>
+
+        let sliders = [
+            "slider1.png",
+            "slider2.png",
+            "slider3.png",
+        ]
+        let sliderDiv = document.getElementById("slider");
+
+        var currentIndex = 0;
+
+        let caption = document.getElementById("caption");
+        
+        
+        function displayNextImage() {
+            caption.innerHTML = "Image " + (currentIndex + 1);
+            let img = document.getElementById("image");
+            img.src = sliders[currentIndex];
+            img.alt = "Image " + (currentIndex + 1);
+            sliderDiv.appendChild(img);
+
+            // currentIndex = (currentIndex + 1) % sliders.length;
+            console.log(currentIndex)
+        }
+        function nextImage() {
+            currentIndex = (currentIndex + 1) % sliders.length;
+            displayNextImage();
+        }
+
+        function prevImage() {
+            currentIndex = currentIndex - 1;
+            if (currentIndex < 0) {
+                currentIndex = sliders.length - 1;
+            }
+            // console.log(currentIndex)
+            displayNextImage();
+        }
+
+        // calling displayNextImage for every 2 seconds
+        setInterval(nextImage, 2000);
+        
+
+    
+    </script>
+</body>
+</html>
