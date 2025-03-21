@@ -56,7 +56,7 @@ Navigate to the directory where you want to clone the repository:
 
 Clone the repository using the following command:
 
-- git clone https://github.com/your-username/cloudvandana-assignment.git
+- git clone https://github.com/uday900/Coding-Assignment-Associate-Software-Engineer-.git
 - cd cloudvandana-assignment
 
 ## How to Run
